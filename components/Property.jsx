@@ -19,7 +19,7 @@ const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, 
         <Flex paddingTop='2' alignItems='center' justifyContent='space-between'>
           <Flex alignItems='center'>
             <Box paddingRight='3' color='green.400'>{isVerified && <GoVerified />}</Box>
-            <Text fontWeight='bold' fontSize='lg'>AED {price}{rentFrequency && `/${rentFrequency}`}</Text>
+            <Text fontWeight='bold' fontSize='lg'>AED {millify (price)}{rentFrequency && `/${rentFrequency}`}</Text>
           </Flex>
           <Box>
             <Avatar size='sm' src={agency?.logo?.url}></Avatar>
@@ -29,7 +29,7 @@ const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, 
           {rooms} <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGridFill />
         </Flex>
         <Text fontSize='lg'>
-          {title.length > 30 ? title.substring(0, 30) + '...' : title}
+          {title.length > 30 ? `${title.substring(0, 30)}...` : title}
         </Text>
       </Box>
     </Flex>
